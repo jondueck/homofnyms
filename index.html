@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homofnyms</title>
+        <meta name="description" content="Character Name Generator">
+        <link rel="mask-icon" href="/img/of_safari-pinned-tab.svg" color="#733238">
+    </head>
+    <body>
+        <header>
+            <span class="site-name">Hom<em>of</em>nyms</span>
+        </header>
+        <main>
+            <span id="character"></span>
+            <button type="button" value="Reload" onClick="window.location.href=window.location.href" aria-label="Refresh Page for New Suggestion">&#8634;</button>
+        </main>
+        <footer>
+            <span class="credits">
+                Written by <a href="https://timmyis.online">Tim Wall</a> and <a href="https://jondueck.ca">Jon Dueck</a>.
+            </span>
+
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Astloch:wght@400;700&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook&display=swap');
+                :root {
+                    --white: #F2EDE4;
+                    --primary: #733238;
+                    --secondary: #AA9BBF;
+                    --background-color: var(--white);
+                    --text-color: var(--primary);
+                    @media (prefers-color-scheme: dark) {
+                        --background-color: var(--primary);
+                        --text-color: var(--white);
+                    }
+                }
+                html {
+                    height: 100%;
+                    min-height: 100vh;
+                    margin: 0;
+                    padding: 0;
+                }
+                body {
+                    font-family: "UnifrakturCook", "Astloch", cursive;
+                    font-weight: 400;
+                    font-style: normal;
+                    display: grid;
+                    grid-template-areas: "header " "main" "footer";
+                    grid-template-rows: auto 1fr auto;
+                    text-align: center;
+                    min-height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    background-color: Canvas;
+                    color: CanvasText;
+                    color-scheme: light dark;
+                    background-color: var(--background-color);
+                    color: var(--text-color);
+                    font-size: 1.25rem;
+                }
+
+                header {
+                    grid-area: header;
+                    padding: 2em;
+                }
+                .site-name {
+                    /* font-style: italic; */
+                    font-weight: 700;
+                    letter-spacing: -0.05em;
+                    font-size: 1.25em;
+                }
+                .site-name em {
+                    margin-inline-start: 0.255ch;
+                    margin-inline-end: 0.625ch;
+                }
+                main {
+                    grid-area: main;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 1em;
+                }
+                footer {
+                    grid-area: footer;
+                    padding: 2em;
+                }
+                #character {
+                    text-wrap: balance;
+                    font-size: clamp(2rem, calc(10vh + 10vw), 12rem);
+                }
+                #character > * {
+                    font-size: inherit;
+                }
+                h2 {
+                    margin: 1rlh;
+                    font-weight: 400;
+                }
+                button {
+                    cursor: pointer;
+                    font: inherit;
+                    appearance: none;
+                    color: inherit;
+                    border: none;
+                    aspect-ratio: 1;
+                    display: inline-block;
+                    background: none;
+                    border-radius: 100%;
+                    padding: 0.5em;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+                    transition-duration: 0.5s;
+                    &:hover {
+                        transform: rotate(-22.5deg) scale(1.5);
+                        background-color: var(--secondary);
+                    }
+                    &:active {
+                        transform: rotate(-180deg) scale(1.5);
+                        background-color: var(--secondary);
+                    }
+                }
+                ::selection {
+                    background: var(--secondary);
+                }
+            </style>
+        </footer>
+
+        <script>
+            (function() {
+              var characters = [
+                { name: "Anne of Tomical" },
+                { name: "Anne of Gramme" },
+                { name: "Mel of Tonin" },
+                { name: "Pant of Mime" },
+              ];
+              var character = characters[Math.floor(Math.random() * characters.length)];
+              document.getElementById("character").innerHTML =
+                '<h2>' + character.name + '</h2>';
+            })();
+          </script>
+
+    </body>
+</html>
